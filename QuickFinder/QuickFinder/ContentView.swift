@@ -14,9 +14,30 @@ struct ContentView: View { //This is the primary thing necessary for all types o
     
         VStack(content: { //Just Like Android, iOS has stacks and stuff depending on what we want to do with all of this
             
-            ForEach(0..<8, content: { index in //You can have for each loops, for loops, and all the usual stuff in swift as well, the index is the iterating variable
+            Text("Hello Friend!").font(.largeTitle)
+            
+            Divider()
+            Button(action:{
+                print("Hi")
+            }) {
+                Text("fe")
+            }
+         MyBtn(title: "BTn Look")
+            ZStack(content: {
+                MyBtn(title: "Pinned Locations")
+//            Text("Pinned Locations")
+            })
+
+            ForEach(0..<2, content: { index in //You can have for each loops, for loops, and all the usual stuff in swift as well, the index is the iterating variable
                 
-                CardView(value: index) //You can create instance of a struct those many times, in this case, created the CardView Struct I defined below
+                HStack(content: {
+                    ForEach(0..<2,content: { index in
+                        MyBtn(title: "Test") //You can create instance of a struct those many times, in this case, created the CardView Struct I defined below
+                                })
+                    
+                })
+            
+                
                 
                 
                 
@@ -24,7 +45,7 @@ struct ContentView: View { //This is the primary thing necessary for all types o
         })
         
         .padding() //If we Specify things like this at the end of the VStack, it will apply to all the things in the VStack, aka it will be the default stuff unless specified otherwise, so can set text related properties and other things at this level itself
-        .foregroundColor(Color.orange)
+//        .foregroundColor(Color.black)
             .font(Font.largeTitle)
         
     }
